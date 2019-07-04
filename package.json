@@ -26,7 +26,8 @@
     "ripple-hashes": "^0.3.0",
     "ripple-keypairs": "^0.10.0",
     "ripple-lib-transactionparser": "^0.6.1",
-    "ws": "^1.0.1"
+    "ws": "^1.0.1",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "assert-diff": "^1.0.1",
@@ -69,13 +70,14 @@
     "compile": "babel -D --optional runtime -d dist/npm/ src/",
     "watch": "babel -w -D --optional runtime -d dist/npm/ src/",
     "compile-with-source-maps": "babel -D --optional runtime -s -t -d dist/npm/ src/",
-    "prepublish": "npm run clean && npm run compile",
+    "prepublish": "npm run snyk-protect; npm run clean && npm run compile",
     "test": "babel-node ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "if ! [ -f eslintrc ]; then curl -o eslintrc 'https://raw.githubusercontent.com/ripple/javascript-style-guide/es6/eslintrc'; echo 'parser: babel-eslint' >> eslintrc; fi; eslint -c eslintrc src/",
     "perf": "./scripts/perf_test.sh",
     "start": "babel-node scripts/http.js",
-    "sauce": "babel-node scripts/sauce-runner.js"
+    "sauce": "babel-node scripts/sauce-runner.js",
+    "snyk-protect": "snyk protect"
   },
   "repository": {
     "type": "git",
@@ -84,5 +86,6 @@
   "readmeFilename": "README.md",
   "engines": {
     "node": ">=0.12.0"
-  }
+  },
+  "snyk": true
 }
