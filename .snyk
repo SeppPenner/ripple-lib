@@ -12,3 +12,7 @@ patch:
         patched: '2019-07-04T03:22:32.084Z'
     - ripple-hashes > ripple-binary-codec > lodash:
         patched: '2019-07-04T03:22:32.084Z'
+    - snyk > snyk-mvn-plugin > lodash:
+        patched: '2019-07-10T07:25:33.178Z'
+    - snyk > snyk-php-plugin > @snyk/composer-lockfile-parser > lodash:
+        patched: '2019-07-10T07:25:33.178Z'
